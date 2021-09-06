@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/index.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Find User</title>
+</head>
+
+<body>
+<section class="wrapper">
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <span><h1>Find User</h1></span>
+                </div>
+
+                <div class="header__search">
+                    <div class="filter-input">
+                        <input
+                                id="search"
+                                name="search"
+                                type="text"
+                                placeholder="Type here..."
+                        />
+                        <button id="button-clear" class="button button--search">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="content">
+        <div class="container">
+            <div id="content-data" class="content__inner">
+                <h4 id="n-found">Nothing Found</h4>
+                <div id="content-table" class="table-wrapper">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th><p>Name</p></th>
+                            <th><p>Picture</p></th>
+                            <th><p>Location</p></th>
+                            <th><p>Email</p></th>
+                            <th><p>Phone</p></th>
+                            <th><p>Registered</p></th>
+                        </tr>
+                        </thead>
+                        <tbody id="content-list">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<script src="app/app.js"></script>
+
+</body>

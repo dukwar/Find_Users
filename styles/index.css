@@ -1,0 +1,260 @@
+/* --------------------------------------------- normalize  ---------------------------------------------*/
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-size: 100%;
+    color: #000;
+}
+
+a,
+p,
+b,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --------------------------------------------- wrappers  ---------------------------------------------*/
+
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #202124;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+/* --------------------------------------------- header  ---------------------------------------------*/
+
+
+.header {
+    width: 100%;
+    min-height: 120px;
+    padding-top: 2rem;
+    background-color: #000000;
+
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    cursor: pointer;
+    white-space: nowrap;
+    margin-right: 1rem;
+}
+
+.header__logo h1 {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+
+.header__search {
+    width: 100%;
+    height: 50px;
+    display: flex;
+}
+
+/* --------------------------------------------- input  ---------------------------------------------*/
+
+.filter-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 100px 0 3%;
+    position: relative;
+    border-radius: 3px;
+    background-color: rgba(237, 237, 237, .9);
+    transition: background-color .2s linear;
+}
+
+.filter-input:hover {
+    background-color: rgba(237, 237, 237, 1);
+}
+
+.filter-input input {
+    width: 100%;
+    border: 0 none;
+    color: #000000;
+    font: 18px/22px Roboto, sans-serif;
+    height: 22px;
+    outline: 0 none;
+    background: transparent;
+    padding: 6px 0 8px;
+    z-index: 10;
+}
+
+/* --------------------------------------------- button  ---------------------------------------------*/
+
+.button {
+    cursor: pointer;
+}
+
+.button--search {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 15px;
+    padding: 0;
+    font-size: 1rem;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 0 none;
+    background: transparent;
+    opacity: 1;
+    transition: opacity .2s;
+}
+
+/* --------------------------------------------- content  ---------------------------------------------*/
+
+
+.content {
+    margin-top: 3rem;
+}
+
+.content__inner {
+    display: flex;
+    justify-content: center;
+}
+
+.content__inner h4 {
+    display: none;
+}
+
+.table-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table p {
+    color: #ffffff;
+    transition: all .2s linear;
+}
+
+tr th {
+    padding: 1rem;
+}
+
+tr td {
+    border: 1px solid #5f6368;
+    text-align: center;
+    padding: 1rem;
+    margin: 0!important;
+}
+
+
+/* --------------------------------------------- tooltip  ---------------------------------------------*/
+
+.tooltip {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+    padding: 10px;
+    border: 1px solid #b3c9ce;
+    border-radius: 4px;
+    text-align: center;
+    font: italic 14px/1.3 sans-serif;
+    color: #333;
+    background: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+}
+
+.tooltip img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --------------------------------------------- preloader  ---------------------------------------------*/
+
+.preloader {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.preloader div {
+    display: inline-block;
+    position: absolute;
+    left: 8px;
+    width: 16px;
+    background: #fff;
+    animation: preloader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.preloader div:nth-child(1) {
+    left: 8px;
+    animation-delay: -0.24s;
+}
+.preloader div:nth-child(2) {
+    left: 32px;
+    animation-delay: -0.12s;
+}
+.preloader div:nth-child(3) {
+    left: 56px;
+}
+@keyframes preloader {
+    0% {
+        top: 8px;
+        height: 64px;
+    }
+    50%, 100% {
+        top: 24px;
+        height: 32px;
+    }
+}

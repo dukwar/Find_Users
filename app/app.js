@@ -29,33 +29,8 @@ function loadData() {
 
             drawUserData(userData)
         })
-        .catch((e) => e.message)
+        .catch((e) => console.log(e.message))
         .finally(() => setFetchingView(false))
-
-    // try {
-    //     fetch(ENDPOINT_URL)
-    //         .then((res) => {
-    //             const data =  res.json()
-    //             const users = data?.results
-    //             userData = users
-    //             drawUserData(userData)
-    //         })
-    //         .catch((e) => e.message)
-    //         .finally(() =>  setFetchingView(false))
-    //     // const data = res.json()
-    //     // const users = data?.results
-    //     //
-    //     // if (!users) {
-    //     //     throw new Error(data.error || 'Что-то пошло не так, попробуйте позднее')
-    //     // }
-    //     //
-    //     // userData = users
-    //     // drawUserData(userData)
-    // } catch (e) {
-    //     console.log(e.message)
-    // } finally {
-    //     setFetchingView(false)
-    // }
 }
 
 // функция, которая...

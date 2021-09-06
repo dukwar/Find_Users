@@ -106,7 +106,7 @@ function getFilterQuery() {
     const splitRegex = /\s+/gui // regex, необходимый для деления введенных данных
     const rawFilterQuery = searchInput.value // данные из поля фильтрации
     const filterQueryArray = rawFilterQuery.replace(ignoreSymbolsRegex, '').split(splitRegex).filter(x => x) // удаляем все знаки пунктуации, образуем массив (делитель - пробел), удаляем все пробелы
-    console.log(filterQueryArray)
+
     let filterQuery = "" // готовая строка с валидными данными для поиска
     for (let i = 0; i < filterQueryArray.length; i++) { // добавляем каждое образованное ранее слово к строке (filterQuery), если слово не последнее, то добавляем пробел
         filterQuery += filterQueryArray[i]

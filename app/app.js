@@ -16,25 +16,46 @@ const nFoundElem = document.getElementById('n-found') // элемент сигн
 
 
 // функция, которая загружает пользователей с сервера, а затем добавляет в соотвествующий массив и рисует их на странице
-async function loadData() {
+function loadData() {
     setFetchingView(true)
+    fetch(ENDPOINT_URL)
+        .then((res) => res.json())
+        .then((data) => {
+            userData = data?.results
 
-    try {
-        const res = await fetch(ENDPOINT_URL)
-        const data = await res.json()
-        const users = data?.results
+            if (!userData) {
+                throw new Error(data.error || 'Что-то пошло не так, попробуйте позднее')
+            }
 
-        if (!users) {
-            throw new Error(data.error || 'Что-то пошло не так, попробуйте позднее')
-        }
+            drawUserData(userData)
+        })
+        .catch((e) => e.message)
+        .finally(() => setFetchingView(false))
 
-        userData = users
-        drawUserData(userData)
-    } catch (e) {
-        console.log(e.message)
-    } finally {
-        setFetchingView(false)
-    }
+    // try {
+    //     fetch(ENDPOINT_URL)
+    //         .then((res) => {
+    //             const data =  res.json()
+    //             const users = data?.results
+    //             userData = users
+    //             drawUserData(userData)
+    //         })
+    //         .catch((e) => e.message)
+    //         .finally(() =>  setFetchingView(false))
+    //     // const data = res.json()
+    //     // const users = data?.results
+    //     //
+    //     // if (!users) {
+    //     //     throw new Error(data.error || 'Что-то пошло не так, попробуйте позднее')
+    //     // }
+    //     //
+    //     // userData = users
+    //     // drawUserData(userData)
+    // } catch (e) {
+    //     console.log(e.message)
+    // } finally {
+    //     setFetchingView(false)
+    // }
 }
 
 // функция, которая...
@@ -63,7 +84,7 @@ function filterData(filterQuery, userData) {
     }
 
     return userData.filter((user) => { // фильтруем пользователей используя метод строки "startsWith"
-        const fullName = (user.name.first + ' ' +  user.name.last).toLowerCase() // приводим полное имя пользователя к нижнему регистру и добавляем между ними пробел
+        const fullName = (user.name.first + ' ' + user.name.last).toLowerCase() // приводим полное имя пользователя к нижнему регистру и добавляем между ними пробел
         return fullName.startsWith(filterQuery) // сравниваем с данными, введенными в поле фильтрации
     })
 }
@@ -136,7 +157,7 @@ const filterUsersDebounce = debounce(() => {
 }, 2000)
 
 
-function handleChangeSearchInput()  {
+function handleChangeSearchInput() {
     filterUsersDebounce()
 }
 

@@ -129,7 +129,7 @@ const filterUsersDebounce = debounce(() => {
     const filterQuery = getFilterQuery()
     const filtratedUsers = filterData(filterQuery, userData)
     drawUserData(filtratedUsers)
-}, 2000)
+}, 1000)
 
 
 function handleChangeSearchInput() {
